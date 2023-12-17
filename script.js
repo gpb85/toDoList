@@ -5,11 +5,19 @@ function nextId() {
 }
 
 function addToPanel() {
+  let formHeader = document.getElementById("formHeader").value;
   let formInput = document.getElementById("formInput").value;
-  let newFormInput = {
-    id: nextId(),
-    text: formInput,
-  };
+
+  let newFormInput;
+
+  if (formInput.trim() !== "") {
+    newFormInput = {
+      header: formHeader,
+      text: formInput,
+      id: nextId(),
+    };
+  }
+
   toDoList = [...toDoList, newFormInput];
   renderToDoList();
   console.log(toDoList);
@@ -21,7 +29,7 @@ function renderToDoList() {
   toDoList.map((todo) => {
     let li = document.createElement("li");
     let button = document.createElement("button");
-    li.textContent = todo.text;
+    li.textContent = `${todo.header}:${todo.text}`;
     button.textContent = "delete";
     button.onclick = () => {
       remove();
@@ -29,8 +37,7 @@ function renderToDoList() {
     toDoUl.appendChild(li);
     li.appendChild(button);
   });
-}
-
-function remove() {
-  console.log("hello world");
+  function remove() {
+    console.log("hi malaka");
+  }
 }
