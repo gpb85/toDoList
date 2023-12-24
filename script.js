@@ -4,7 +4,6 @@ let id = 1;
 // Έλεγχος για την ύπαρξη αποθηκευμένων δεδομένων στην cache
 if (localStorage.getItem("toDoList")) {
   toDoList = JSON.parse(localStorage.getItem("toDoList"));
-  id = Math.max(...toDoList.map((todo) => todo.id)) + 1;
 }
 
 function nextId() {
