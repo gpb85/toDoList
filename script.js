@@ -7,7 +7,10 @@ if (localStorage.getItem("toDoList")) {
 }
 
 function nextId() {
-  return id++;
+  while (toDoList.some((todo) => todo.id === id)) {
+    id++;
+  }
+  return id;
 }
 
 function addToPanel() {
@@ -24,6 +27,8 @@ function addToPanel() {
     renderToDoList();
     console.log(toDoList);
     saveDataToLocalStorage();
+    document.getElementById("formHeader").value = "";
+    document.getElementById("formInput").value = "";
   }
 }
 
@@ -51,6 +56,15 @@ function renderToDoList() {
   }
 }
 
+function deleteAll() {
+  toDoList = [];
+  id = 1;
+  saveDataToLocalStorage();
+  renderToDoList();
+}
+
 function saveDataToLocalStorage() {
   localStorage.setItem("toDoList", JSON.stringify(toDoList));
 }
+
+renderToDoList();
