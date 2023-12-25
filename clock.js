@@ -1,13 +1,10 @@
-function updateClock() {
+function getCurrentTime() {
   let now = new Date();
-
-  let hours = now.getHours();
-  let minutes = now.getMinutes();
-  let seconds = now.getSeconds();
-
-  let clockElement = document.getElementById("clock");
-  clockElement.textContent = `${hours}:${minutes}${seconds}`;
+  let hours = formatUnit(now.getHours());
+  let minutes = formatUnit(now.getMinutes());
+  let seconds = formatUnit(now.getSeconds());
+  return `${hours}:${minutes}:${seconds}`;
 }
-
-setInterval(updateClock, 1000);
-updateClock();
+function formatUnit(unit) {
+  return unit < 10 ? `0${unit}` : unit;
+}

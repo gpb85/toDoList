@@ -21,6 +21,7 @@ function addToPanel() {
     let newFormInput = {
       header: formHeader,
       text: formInput,
+      timestamp: getCurrentTime(),
       id: nextId(),
     };
     toDoList = [...toDoList, newFormInput];
@@ -39,8 +40,9 @@ function renderToDoList() {
   toDoList.forEach((todo) => {
     let li = document.createElement("li");
     let button = document.createElement("button");
+    let currentTime = getCurrentTime();
 
-    li.textContent = `${todo.header}:${todo.text}`;
+    li.textContent = `${todo.header}:${todo.text}\n${todo.timestamp} `;
     button.textContent = "delete";
     button.addEventListener("click", () => {
       remove(todo.id);

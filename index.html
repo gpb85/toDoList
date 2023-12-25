@@ -14,25 +14,28 @@
         <h1>to do list</h1>
       </div>
 
-      <form>
+      <form id="form">
         <label for="formHeader"></label>
         <input type="text" id="formHeader" placeholder="Subject" />
         <label for="formInput"></label>
         <textarea
           id="formInput"
-          cols="15"
+          cols="24"
           rows="7"
           placeholder="Text.."
         ></textarea>
       </form>
       <div id="buttons">
-        <button type="button" onclick="addToPanel()">Submit</button>
-        <button type="button" onclick="deleteAll()">deleteAll</button>
+        <button class="button" type="button" onclick="addToPanel()">
+          Add toDo
+        </button>
+        <button class="button" button type="button" onclick="deleteAll()">
+          deleteAll
+        </button>
       </div>
       <div class="panel">
         <div id="panelText"></div>
       </div>
-      <div id="clock"></div>
     </div>
     <script src="./script.js"></script>
     <script src="./clock.js"></script>
